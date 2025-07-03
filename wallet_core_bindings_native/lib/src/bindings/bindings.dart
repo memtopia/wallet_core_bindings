@@ -5353,6 +5353,101 @@ class TrustWalletCoreBindings {
           ffi.Pointer<TWPublicKey> Function(
               ffi.Pointer<TWString>, int, ffi.Pointer<TWString>)>();
 
+  ffi.Pointer<TWPrivateKey> TWHDWalletGetPrivateKeyByChainCode(
+    ffi.Pointer<TWString> chainCode,
+    ffi.Pointer<TWString> key,
+    int coin,
+    ffi.Pointer<TWString> derivationPath,
+  ) {
+    return _TWHDWalletGetPrivateKeyByChainCode(
+      chainCode,
+      key,
+      coin,
+      derivationPath,
+    );
+  }
+
+  late final _TWHDWalletGetPrivateKeyByChainCodePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<TWPrivateKey> Function(
+              ffi.Pointer<TWString>,
+              ffi.Pointer<TWString>,
+              ffi.Int32,
+              ffi.Pointer<TWString>)>>('TWHDWalletGetPrivateKeyByChainCode');
+  late final _TWHDWalletGetPrivateKeyByChainCode =
+      _TWHDWalletGetPrivateKeyByChainCodePtr.asFunction<
+          ffi.Pointer<TWPrivateKey> Function(ffi.Pointer<TWString>,
+              ffi.Pointer<TWString>, int, ffi.Pointer<TWString>)>();
+
+  ffi.Pointer<TWPrivateKey> TWHDWalletGetPrivateKeyByChainCodeCardano(
+    ffi.Pointer<TWString> key,
+    ffi.Pointer<TWString> ext,
+    ffi.Pointer<TWString> chainCode,
+    int coin,
+    ffi.Pointer<TWString> derivationPath,
+  ) {
+    return _TWHDWalletGetPrivateKeyByChainCodeCardano(
+      key,
+      ext,
+      chainCode,
+      coin,
+      derivationPath,
+    );
+  }
+
+  late final _TWHDWalletGetPrivateKeyByChainCodeCardanoPtr = _lookup<
+          ffi.NativeFunction<
+              ffi.Pointer<TWPrivateKey> Function(
+                  ffi.Pointer<TWString>,
+                  ffi.Pointer<TWString>,
+                  ffi.Pointer<TWString>,
+                  ffi.Int32,
+                  ffi.Pointer<TWString>)>>(
+      'TWHDWalletGetPrivateKeyByChainCodeCardano');
+  late final _TWHDWalletGetPrivateKeyByChainCodeCardano =
+      _TWHDWalletGetPrivateKeyByChainCodeCardanoPtr.asFunction<
+          ffi.Pointer<TWPrivateKey> Function(
+              ffi.Pointer<TWString>,
+              ffi.Pointer<TWString>,
+              ffi.Pointer<TWString>,
+              int,
+              ffi.Pointer<TWString>)>();
+
+  ffi.Pointer<TWString> TWHDWalletGetHDMasterNode(
+    ffi.Pointer<TWString> mnemonic,
+    int coin,
+  ) {
+    return _TWHDWalletGetHDMasterNode(
+      mnemonic,
+      coin,
+    );
+  }
+
+  late final _TWHDWalletGetHDMasterNodePtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<TWString> Function(
+              ffi.Pointer<TWString>, ffi.Int32)>>('TWHDWalletGetHDMasterNode');
+  late final _TWHDWalletGetHDMasterNode = _TWHDWalletGetHDMasterNodePtr
+      .asFunction<ffi.Pointer<TWString> Function(ffi.Pointer<TWString>, int)>();
+
+  ffi.Pointer<TWString> TWHDWalletGetHDMasterNodeCardano(
+    ffi.Pointer<TWString> mnemonic,
+    int coin,
+  ) {
+    return _TWHDWalletGetHDMasterNodeCardano(
+      mnemonic,
+      coin,
+    );
+  }
+
+  late final _TWHDWalletGetHDMasterNodeCardanoPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Pointer<TWString> Function(ffi.Pointer<TWString>,
+              ffi.Int32)>>('TWHDWalletGetHDMasterNodeCardano');
+  late final _TWHDWalletGetHDMasterNodeCardano =
+      _TWHDWalletGetHDMasterNodeCardanoPtr.asFunction<
+          ffi.Pointer<TWString> Function(ffi.Pointer<TWString>, int)>();
+
   /// Calculate the TX hash of a transaction.
   ///
   /// \param coin coin type.

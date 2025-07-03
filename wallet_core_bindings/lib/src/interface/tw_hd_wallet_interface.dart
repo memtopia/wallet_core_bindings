@@ -51,5 +51,15 @@ abstract class TWHDWalletInterface {
 
   int getPublicKeyFromExtended(int extended, int coin, int derivationPath);
 
+  int getPrivateKeyByChainCode(
+      int chainCode, int key, int coin, int derivationPath);
+
+  int getPrivateKeyByChainCodeCardano(
+      int key, int ext, int chainCode, int coin, int derivationPath);
+
+  int getHDMasterNode(int mnemonic, int coin);
+
+  int getHDMasterNodeCardano(int mnemonic, int coin);
+
   void delete(int pointer);
 }
