@@ -205,6 +205,15 @@ class TWHDWalletImpl extends TWHDWalletInterface {
   }
 
   @override
+  int getPrivateKeyFromExtended(int extended, int coin, int derivationPath) {
+    return bindings.TWHDWalletGetPrivateKeyFromExtended(
+      Pointer.fromAddress(extended),
+      coin,
+      Pointer.fromAddress(derivationPath),
+    ).address;
+  }
+
+  @override
   int mnemonic(int pointer) {
     return bindings.TWHDWalletMnemonic(
       Pointer.fromAddress(pointer),
@@ -215,6 +224,50 @@ class TWHDWalletImpl extends TWHDWalletInterface {
   int seed(int pointer) {
     return bindings.TWHDWalletSeed(
       Pointer.fromAddress(pointer),
+    ).address;
+  }
+
+  @override
+  int getHDMasterNode(int mnemonic, int coin) {
+    return bindings.TWHDWalletGetHDMasterNode(
+      Pointer.fromAddress(mnemonic),
+      coin,
+    ).address;
+  }
+
+  @override
+  int getHDMasterNodeCardano(int mnemonic, int coin) {
+    return bindings.TWHDWalletGetHDMasterNodeCardano(
+      Pointer.fromAddress(mnemonic),
+      coin,
+    ).address;
+  }
+
+  @override
+  int getPrivateKeyByChainCode(
+      int chainCode, int key, int coin, int derivationPath) {
+    return bindings.TWHDWalletGetPrivateKeyByChainCode(
+      Pointer.fromAddress(chainCode),
+      Pointer.fromAddress(key),
+      coin,
+      Pointer.fromAddress(derivationPath),
+    ).address;
+  }
+
+  @override
+  int getPrivateKeyByChainCodeCardano(
+    int key,
+    int ext,
+    int chainCode,
+    int coin,
+    int derivationPath,
+  ) {
+    return bindings.TWHDWalletGetPrivateKeyByChainCodeCardano(
+      Pointer.fromAddress(key),
+      Pointer.fromAddress(ext),
+      Pointer.fromAddress(chainCode),
+      coin,
+      Pointer.fromAddress(derivationPath),
     ).address;
   }
 }

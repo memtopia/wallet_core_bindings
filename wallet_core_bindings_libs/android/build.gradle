@@ -94,7 +94,7 @@ task downloadDependencies(type: Exec) {
 
     // Download all *.jar dependencies & verify their MD5 checksums.
     def filesToDownload = [
-            ["url": "https://github.com/xuelongqy/wallet-core/releases/download/${version}/wallet-core.aar", "md5": "bc3eefda5cea6d1f960e150df8f1b7d4", "destination": file("$buildDir/wallet-core.aar")]
+            ["url": "https://github.com/memtopia/wallet-core/releases/download/v4.3.6_hdwallet_api/wallet-core.aar", "md5": "99a9e80d182a488b2c67798d29864943", "destination": file("$buildDir/wallet-core.aar")]
     ]
 
     filesToDownload.each { fileInfo ->

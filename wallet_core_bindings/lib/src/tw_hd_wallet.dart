@@ -354,4 +354,67 @@ class TWHDWallet extends TWObjectFinalizable {
         coin.value,
         TWString(derivationPath).pointer,
       ));
+
+  /// Computes the private key from an extended private key representation.
+  ///
+  /// \param [extended] extended private key
+  /// \param [coin] a coin type
+  /// \param [derivationPath] a derivation path
+  /// \return Nullable TWPrivate key
+  static TWPrivateKey getPrivateKeyFromExtended({
+    required String extended,
+    required TWCoinType coin,
+    required String derivationPath,
+  }) =>
+      TWPrivateKey.fromPointer(_hdWalletImpl.getPrivateKeyFromExtended(
+        TWString(extended).pointer,
+        coin.value,
+        TWString(derivationPath).pointer,
+      ));
+
+  static TWPrivateKey getPrivateKeyByChainCode({
+    required String chainCode,
+    required String key,
+    required TWCoinType coin,
+    required String derivationPath,
+  }) =>
+      TWPrivateKey.fromPointer(_hdWalletImpl.getPrivateKeyByChainCode(
+        TWString(chainCode).pointer,
+        TWString(key).pointer,
+        coin.value,
+        TWString(derivationPath).pointer,
+      ));
+
+  static TWPrivateKey getPrivateKeyByChainCodeCardano({
+    required String chainCode,
+    required String key,
+    required String ext,
+    required TWCoinType coin,
+    required String derivationPath,
+  }) =>
+      TWPrivateKey.fromPointer(_hdWalletImpl.getPrivateKeyByChainCodeCardano(
+        TWString(key).pointer,
+        TWString(ext).pointer,
+        TWString(chainCode).pointer,
+        coin.value,
+        TWString(derivationPath).pointer,
+      ));
+
+  static String getHDMasterNode({
+    required String mnemonic,
+    required TWCoinType coin,
+  }) =>
+      TWString.fromPointer(_hdWalletImpl.getHDMasterNode(
+        TWString(mnemonic).pointer,
+        coin.value,
+      )).value!;
+
+  static String getHDMasterNodeCardano({
+    required String mnemonic,
+    required TWCoinType coin,
+  }) =>
+      TWString.fromPointer(_hdWalletImpl.getHDMasterNodeCardano(
+        TWString(mnemonic).pointer,
+        coin.value,
+      )).value!;
 }
